@@ -103,9 +103,16 @@ void altaPersona(ePersona persona[],int tam)
             printf("Ingrese numero de ID: ");
             scanf("%d",&persona[espacioLibre].id);
 
+            printf("Ingrese numero de telefono");
+            scanf("%d",&persona[espacioLibre].numero);
+
             printf("Ingrese nombre: ");
             fflush(stdin);
-            gets(persona[espacioLibre].)
+            gets(persona[espacioLibre].nombre);
+
+            printf("Ingrese apellido: ");
+            fflush(stdin);
+            gets(persona[espacioLibre].apellido);
         }
 
     }
