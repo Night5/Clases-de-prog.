@@ -32,7 +32,9 @@ typedef struct
 void inicializarPersona(ePersona persona[],int tam);
 int obtenerEspacioLibre(ePersona persona[],int tam);
 void altaPersona(ePersona persona[],int tam);
-void modificarPersona(ePersona persona[], int tam);
+void modificarPersona(ePersona persona[],int tam);
+void bajaPersona(ePersona[],int tam);
+int buscarPorId(ePersona persona[], int tam,int id);
 
 
 
@@ -142,10 +144,77 @@ void altaPersona(ePersona persona[],int tam)
 
 }
 
-void modificarPersona(ePersona persona[], int tam)
+void modificarPersona(ePersona persona[],int tam)
 {
+    int flag=0;
+    char auxNombre[30];
+    char auxApellido[30];
+    int auxId;
     int i;
+    char respuesta;
+
+    printf("Ingrese ID de la persona que desea modificar: ");
+    scanf("%d",&Auxid);
+
+    for(i=0;i<tam;i++)
+    {
+        if(persona[i].estado==1 && auxId==persona[i].id)
+        {
+            printf("%d--%s--%s\n",persona[i].id,persona[i].nombre,persona[i].apellido);
+            printf("Ingrese nuevo nombre: ");
+            scanf("%s",&auxNombre);
+
+            printf("Ingrese nuevo apellido: ");
+            scanf("%s",&auxApellido);
+
+            printf("Esta seguro que desea modificar estos datos? s/n");
+            respuesta=getche();
+            if(respuesta=='s')
+            {
+                persona[i].nombre=auxNombre;
+                persona[i].apellido=auxApellido;
+            }
+            else
+            {
+                printf("Modificacion cancelada!");
+            }
+
+            flag=1;
+            break;
+
+        }
+    }
+
+    if(flag==0)
+    {
+        printf("Id inexistente!");
+    }
 
 }
 
+int buscarPorId(ePersona persona[], int tam,int id)
+{
+    int i;
+
+    for(i=0;i<tam;i++)
+    {
+        if(persona[i].id==id)
+        {
+          return persona[i].id;
+        }
+    }
+}
+
+void bajaPersona(ePersona[],int tam)
+{
+    int id;
+    int i;
+    int buscarLugar;
+    char respuesta;
+
+    printf("Ingrese ID de la persona que desea eliminar.");
+    scanf("%d",&id);
+
+    if(persona[i].estado==1 && )
+}
 
