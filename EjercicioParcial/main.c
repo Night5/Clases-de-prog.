@@ -17,9 +17,24 @@ typedef struct
 
 }ePersona;
 
+typedef struct
+{
+    int id;
+    int numero;
+    char nombre[100];
+    char apellido[100];
+    char estado[100];
+    char motivo[100];
+
+}eLlamada;
+
+
 void inicializarPersona(ePersona persona[],int tam);
 int obtenerEspacioLibre(ePersona persona[],int tam);
 void altaPersona(ePersona persona[],int tam);
+void modificarPersona(ePersona persona[], int tam);
+
+
 
 
 int main()
@@ -113,8 +128,24 @@ void altaPersona(ePersona persona[],int tam)
             printf("Ingrese apellido: ");
             fflush(stdin);
             gets(persona[espacioLibre].apellido);
+
+            persona[i].estado=1;
+            break;
         }
 
     }
 
+    if(tam==i && obtenerEspacioLibre(persona,tam)==-1)
+    {
+        printf("No hay espacio disponible!");
+    }
+
 }
+
+void modificarPersona(ePersona persona[], int tam)
+{
+    int i;
+
+}
+
+
